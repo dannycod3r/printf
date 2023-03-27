@@ -22,6 +22,9 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+
+			if (!(format[i]))
+				return (-1);
 			func = get_func(format[i]);
 			if (func == NULL)
 			{
