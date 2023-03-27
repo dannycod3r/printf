@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * _printf - function that produces output according to a format
+ * @format: character string
+ * @...: arbitrary number of arguments
+ * Return: the number characters printed exluding '\0'
+ */
 int _printf(const char *format, ...)
 {
 	int count = 0, i = 0;
@@ -16,16 +22,19 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+
+			if (!(format[i]))
+				return (-1);
 			func = get_func(format[i]);
 			if (func == NULL)
 			{
 				_putchar('%');
 				_putchar(format[i]);
-				count++;
+				count += 2;
 			}
 			else
 			{
-				count = func(args);
+				count += func(args);
 			}
 		}
 		else
