@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				count = func(args);
+				count += func(args);
 			}
 		}
 		else

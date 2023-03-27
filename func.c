@@ -2,13 +2,13 @@
 
 /**
  * print_c - function to print character
- * @args: characters to print
+ * @arg: characters to print
  * Return: number of character or -1 if failed
  */
 
-int print_c(va_list args)
+int print_c(va_list arg)
 {
-	char ch = va_arg(args, int);
+	char ch = va_arg(arg, int);
 
 	return (_putchar(ch));
 }
@@ -43,4 +43,96 @@ int print_percent(__attribute__((unused))va_list args)
 	_putchar('%');
 
 	return (1);
+}
+
+
+/**
+ * print_d - print a decimal
+ * @args: decimal to print
+ *
+ * Return: number of characters and digits printed
+ */
+int print_d(va_list args)
+{
+	int n = va_arg(args, int);
+	int num, last = n % 10, digit;
+	int  i = 1;
+	int exp = 1;
+
+	n = n / 10;
+	num = n;
+
+	if (last < 0)
+	{
+		_putchar('-');
+		num = -num;
+		n = -n;
+		last = -last;
+		i++;
+	}
+	if (num > 0)
+	{
+		while (num / 10 != 0)
+		{
+			exp = exp * 10;
+			num = num / 10;
+		}
+		num = n;
+		while (exp > 0)
+		{
+			digit = num / exp;
+			_putchar(digit + '0');
+			num = num - (digit * exp);
+			exp = exp / 10;
+			i++;
+		}
+	}
+	_putchar(last + '0');
+
+	return (i);
+}
+
+/**
+ * print_i - prints an integer
+ * @args: integer to print
+ *
+ * Return: number of chars and digits printed
+ */
+int print_i(va_list args)
+{
+	int n = va_arg(args, int);
+	int num, last = n % 10, digit, exp = 1;
+	int  i = 1;
+
+	n = n / 10;
+	num = n;
+
+	if (last < 0)
+	{
+		_putchar('-');
+		num = -num;
+		n = -n;
+		last = -last;
+		i++;
+	}
+	if (num > 0)
+	{
+		while (num / 10 != 0)
+		{
+			exp = exp * 10;
+			num = num / 10;
+		}
+		num = n;
+		while (exp > 0)
+		{
+			digit = num / exp;
+			_putchar(digit + '0');
+			num = num - (digit * exp);
+			exp = exp / 10;
+			i++;
+		}
+	}
+	_putchar(last + '0');
+
+	return (i);
 }

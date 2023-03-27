@@ -13,6 +13,8 @@ int (*get_func(const char a))(va_list)
 	format_t structs_pr[] = {
 		{'c', print_c},
 		{'s', print_s},
+		{'d', print_d},
+		{'i', print_i},
 		{'%', print_percent},
 		{'\0', NULL}
 	};

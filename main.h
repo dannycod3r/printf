@@ -25,10 +25,10 @@ int _putchar(char c);
 
 /* helpers */
 int (*get_func(const char a))(va_list);
-int print_c(va_list parameters);
-int print_s(va_list parameters);
-int print_percent(__attribute__((unused))va_list parameters);
-int print_i(va_list parameters);
-int print_d(va_list parameters);
+int print_c(va_list argss);
+int print_s(va_list args);
+int print_percent(__attribute__((unused))va_list args);
+int print_i(va_list args);
+int print_d(va_list args);
 
 #endif
