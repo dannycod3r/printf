@@ -1,45 +1,35 @@
 #include "main.h"
+
 /**
- * printf_unsigned - prints integer
- * @args: argument to print
- * Return: number of characters printed
+ * printf_bin - prints a binary number.
+ * @val: arguments.
+ * Return: 1.
  */
-int printf_unsigned(va_list args)
+int printf_bin(va_list val)
 {
-        unsigned int n = va_arg(args, unsigned int);
-        int num, last = n % 10, digit, exp = 1;
-        int  i = 1;
+        int flag = 0;
+        int cont = 0;
+        int i, a = 1, b;
+        unsigned int num = va_arg(val, unsigned int);
+        unsigned int p;
 
-        n = n / 10;
-        num = n;
-
-        if (last < 0)
+        for (i = 0; i < 32; i++)
         {
-                _putchar('-');
-                num = -num;
-                n = -n;
-                last = -last;
-                i++;
-        }
-        if (num > 0)
-        {
-                while (num / 10 != 0)
+                p = ((a << (31 - i)) & num);
+                if (p >> (31 - i))
+                        flag = 1;
+                if (flag)
                 {
-                        exp = exp * 10;
-                        num = num / 10;
-                }
-                num = n;
-                while (exp > 0)
-                {
-                        digit = num / exp;
-                        _putchar(digit + '0');
-                        num = num - (digit * exp);
-                        exp = exp / 10;
-                        i++;
+                        b = p >> (31 - i);
+                        _putchar(b + 48);
+                        cont++;
                 }
         }
-        _putchar(last + '0');
-
-        return (i);
+        if (cont == 0)
+        {
+                cont++;
+                _putchar('0');
+        }
+        return (cont);
 }
 
