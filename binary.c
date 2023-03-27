@@ -1,35 +1,47 @@
-#include "main.h"
-
+#include "main.h" 
 /**
- * printf_bin - prints a binary number.
- * @val: arguments.
- * Return: 1.
+ * print_binary - Prints an unsigned number
+ * @types: Lista of arguments
+ * @buffer: Buffer array to handle print
+ * @flags:  Calculates active flags
+ * @width: get width.
+ * @precision: Precision specification
+ * @size: Size specifier
+ * Return: Numbers of char printed.
  */
-int printf_bin(va_list val)
+int print_binary(va_list types, char buffer[],
+	int flags, int width, int precision, int size)
 {
-        int flag = 0;
-        int cont = 0;
-        int i, a = 1, b;
-        unsigned int num = va_arg(val, unsigned int);
-        unsigned int p;
+	unsigned int n, m, i, sum;
+	unsigned int a[32];
+	int count;
 
-        for (i = 0; i < 32; i++)
-        {
-                p = ((a << (31 - i)) & num);
-                if (p >> (31 - i))
-                        flag = 1;
-                if (flag)
-                {
-                        b = p >> (31 - i);
-                        _putchar(b + 48);
-                        cont++;
-                }
-        }
-        if (cont == 0)
-        {
-                cont++;
-                _putchar('0');
-        }
-        return (cont);
+	UNUSED(buffer);
+	UNUSED(flags);
+	UNUSED(width);
+	UNUSED(precision);
+	UNUSED(size);
+
+	n = va_arg(types, unsigned int);
+	m = 2147483648; /* (2 ^ 31) */
+	a[0] = n / m;
+	for (i = 1; i < 32; i++)
+	{
+		m /= 2;
+		a[i] = (n / m) % 2;
+	}
+	for (i = 0, sum = 0, count = 0; i < 32; i++)
+	{
+		sum += a[i];
+		if (sum || i == 31)
+		{
+			char z = '0' + a[i];
+
+			write(1, & z, 1);
+			count++;
+		}
+	}
+	return (count);
 }
+
 
