@@ -1,7 +1,8 @@
 #include "main.h"
 /**
  * print_b - Prints an unsigned number
- * @args: Lista of arguments
+ * @args: List of arguments
+ * @f: flag struct
  * Return: Numbers of char printed.
  */
 int print_b(va_list args, flags_t *f)
@@ -9,7 +10,7 @@ int print_b(va_list args, flags_t *f)
 	unsigned int n, m, i, sum;
 	unsigned int a[32];
 	int count;
-	
+
 	(void)f;
 
 	n = va_arg(args, unsigned int);

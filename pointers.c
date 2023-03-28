@@ -2,6 +2,7 @@
 /**
  * print_p - prints pointers
  * @args: argument
+ * @f: flag struct
  * Return: number of characters printed
  */
 int print_p(va_list args, flags_t *f)

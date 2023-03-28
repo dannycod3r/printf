@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int (*func)(va_list, flags_t *);
 	flags_t flags = {0, 0, 0};
-	
+
 	va_start(args, format);
 
 	if (format == NULL)

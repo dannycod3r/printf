@@ -2,6 +2,7 @@
 /**
  * print_x - prints the hexadecimal representation of a decimal number
  * @args: argument
+ * @f: flag struct
  * Return: number of characters printed
  */
 int print_x(va_list args, flags_t *f)
@@ -10,9 +11,9 @@ int print_x(va_list args, flags_t *f)
 	int arr[sizeof(int) * 2 + 1];
 	unsigned int num = va_arg(args, unsigned int);
 	char hex_digits[] = "0123456789abcdef";
-	
+
 	(void)f;
-	
+
 	if (num == 0)
 	{
 		_putchar('0');
@@ -40,6 +41,7 @@ int print_x(va_list args, flags_t *f)
 /**
  * print_X - prints the hexadecimal representation of a decimal number
  * @args: argument
+ * @f: flag struct
  * Return: number of characters printed
  */
 int print_X(va_list args, flags_t *f)
@@ -48,7 +50,7 @@ int print_X(va_list args, flags_t *f)
 	int arr[sizeof(int) * 2 + 1];
 	unsigned int num = va_arg(args, unsigned int);
 	char hex_digits[] = "0123456789ABCDEF";
-	
+
 	(void)f;
 
 	if (num == 0)
@@ -78,6 +80,8 @@ int print_X(va_list args, flags_t *f)
 /**
  * print_x_helper - prints the hexadecimal representation of a decimal number
  * @num: number
+ * @base: base
+ * @lowercase: flag lowercase or uppercase
  * Return: number of characters printed
  */
 char *print_x_helper(unsigned long int num, int base, int lowercase)

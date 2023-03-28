@@ -5,14 +5,14 @@
  * are printed as \x followed by the ASCII code value in uppercase hexadecimal
  * (always with 2 characters)
  * @args: a va_list of arguments containing the string to be printed
- *
+ * @f: flag struct
  * Return: the number of characters printed
  */
 int print_S(va_list args, flags_t *f)
 {
 	char *str = va_arg(args, char *);
 	int i, count = 0;
-	
+
 	(void)f;
 
 	if (str == NULL)

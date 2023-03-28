@@ -2,6 +2,7 @@
 /**
  * print_o - prints the octal representation of a decimal number
  * @args: argument
+ * @f: flag struct
  * Return: number of characters printed
  */
 
@@ -11,7 +12,7 @@ int print_o(va_list args, flags_t *f)
 	unsigned int num = va_arg(args, unsigned int);
 	int arr[sizeof(int) * 8 + 1];
 	int i = 0;
-	
+
 	(void)f;
 
 	if (num < 8)

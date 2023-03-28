@@ -53,5 +53,6 @@ int print_X(va_list args, flags_t *f);
 int print_S(va_list args, flags_t *f);
 int print_p(va_list args, flags_t *f);
 int get_flag(char s, flags_t *f);
+int _puts(char *str);
 
 #endif
