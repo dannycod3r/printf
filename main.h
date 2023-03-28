@@ -23,6 +23,7 @@ typedef struct flags
 	int space;
 	int hash;
 	int zero;
+	int minus;
 } flags_t;
 
 /**
