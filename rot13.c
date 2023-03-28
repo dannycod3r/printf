@@ -1,7 +1,7 @@
 #include "main.h"
 /**
- * rot_13 - convert ROT13 to text
- * @parameters: argument
+ * print_rot13 - convert ROT13 to text
+ * @args: argument
  * @f: flag struct
  * Return: number of characters to be print
  */
