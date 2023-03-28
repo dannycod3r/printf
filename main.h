@@ -15,12 +15,14 @@ int _printf(const char *format, ...);
  * @plus: flag for the '+' character
  * @space: flag for the ' ' character
  * @hash: flag for the '#' character
+ * @zero: flag for the '0' character
  */
 typedef struct flags
 {
 	int plus;
 	int space;
 	int hash;
+	int zero;
 } flags_t;
 
 /**
@@ -54,5 +56,6 @@ int print_S(va_list args, flags_t *f);
 int print_p(va_list args, flags_t *f);
 int get_flag(char s, flags_t *f);
 int _puts(char *str);
+int print_rev_str(va_list args, flags_t *f);
 
 #endif
