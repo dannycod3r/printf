@@ -1,6 +1,6 @@
-#include "main.h" 
+#include "main.h"
 /**
- * print_binary - Prints an unsigned number
+ * print_b - Prints an unsigned number
  * @args: Lista of arguments
  * Return: Numbers of char printed.
  */
@@ -9,7 +9,7 @@ int print_b(va_list args)
 	unsigned int n, m, i, sum;
 	unsigned int a[32];
 	int count;
-	
+
 	n = va_arg(args, unsigned int);
 	m = 2147483648; /* (2 ^ 31) */
 	a[0] = n / m;
@@ -25,7 +25,7 @@ int print_b(va_list args)
 		{
 			char z = '0' + a[i];
 
-			write(1, & z, 1);
+			write(1, &z, 1);
 			count++;
 		}
 	}
