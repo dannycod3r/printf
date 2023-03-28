@@ -6,7 +6,7 @@
  * Return: function pointer
  */
 
-int (*get_func(const char a))(va_list)
+int (*get_func(const char a))(va_list, flags_t *)
 {
 	unsigned int m = 0;
 

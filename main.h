@@ -9,6 +9,19 @@
 /* function that produces output according to a format */
 int _printf(const char *format, ...);
 
+/**
+ * struct flags - struct containing flags to "turn on"
+ * when a flag specifier is passed to _printf()
+ * @plus: flag for the '+' character
+ * @space: flag for the ' ' character
+ * @hash: flag for the '#' character
+ */
+typedef struct flags
+{
+	int plus;
+	int space;
+	int hash;
+} flags_t;
 
 /**
  *struct format - structure for printing various types
@@ -18,25 +31,27 @@ int _printf(const char *format, ...);
 typedef struct format
 {
 	const char spc;
-	int (*f)(va_list);
+	int (*f)(va_list, flags_t *f);
 } format_t;
 
 /* function that prints character */
 int _putchar(char c);
 
 /* helpers */
-int (*get_func(const char a))(va_list);
-int print_c(va_list argss);
-int print_s(va_list args);
-int print_percent(__attribute__((unused))va_list args);
-int print_i(va_list args);
-int print_d(va_list args);
-int print_b(va_list args);
-int print_u(va_list args);
-int print_o(va_list args);
-int print_x(va_list args);
-int print_X(va_list args);
-int print_S(va_list args);
-int print_p(va_list args);
+int (*get_func(const char a))(va_list, flags_t *f);
+int print_c(va_list args, flags_t *f);
+int print_s(va_list args, flags_t *f);
+int print_percent(__attribute__((unused))va_list args, flags_t *f);
+int print_i(va_list args, flags_t *f);
+int print_d(va_list args, flags_t *f);
+int print_b(va_list args, flags_t *f);
+int print_u(va_list args, flags_t *f);
+int print_o(va_list args, flags_t *f);
+int print_x(va_list args, flags_t *f);
+char *print_x_helper(unsigned long int num, int base, int lowercase);
+int print_X(va_list args, flags_t *f);
+int print_S(va_list args, flags_t *f);
+int print_p(va_list args, flags_t *f);
+int get_flag(char s, flags_t *f);
 
 #endif

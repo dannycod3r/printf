@@ -5,12 +5,14 @@
  * Return: number of characters printed
  */
 
-int print_o(va_list args)
+int print_o(va_list args, flags_t *f)
 {
 	int j = 0;
 	unsigned int num = va_arg(args, unsigned int);
 	int arr[sizeof(int) * 8 + 1];
 	int i = 0;
+	
+	(void)f;
 
 	if (num < 8)
 	{

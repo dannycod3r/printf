@@ -4,11 +4,13 @@
  * @args: Lista of arguments
  * Return: Numbers of char printed.
  */
-int print_b(va_list args)
+int print_b(va_list args, flags_t *f)
 {
 	unsigned int n, m, i, sum;
 	unsigned int a[32];
 	int count;
+	
+	(void)f;
 
 	n = va_arg(args, unsigned int);
 	m = 2147483648; /* (2 ^ 31) */

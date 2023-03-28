@@ -8,10 +8,12 @@
  *
  * Return: the number of characters printed
  */
-int print_S(va_list args)
+int print_S(va_list args, flags_t *f)
 {
 	char *str = va_arg(args, char *);
 	int i, count = 0;
+	
+	(void)f;
 
 	if (str == NULL)
 		str = "(null)";
