@@ -18,6 +18,8 @@ int (*get_func(const char a))(va_list)
 		{'b', print_b},
 		{'u', print_u},
 		{'o', print_o},
+		{'x', print_x},
+		{'X', print_X},
 		{'%', print_percent},
 		{'\0', NULL}
 	};
