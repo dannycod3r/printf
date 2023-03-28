@@ -1,28 +1,16 @@
 #include "main.h" 
 /**
  * print_binary - Prints an unsigned number
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
- * @width: get width.
- * @precision: Precision specification
- * @size: Size specifier
+ * @args: Lista of arguments
  * Return: Numbers of char printed.
  */
-int print_binary(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
+int print_b(va_list args)
 {
 	unsigned int n, m, i, sum;
 	unsigned int a[32];
 	int count;
-
-	UNUSED(buffer);
-	UNUSED(flags);
-	UNUSED(width);
-	UNUSED(precision);
-	UNUSED(size);
-
-	n = va_arg(types, unsigned int);
+	
+	n = va_arg(args, unsigned int);
 	m = 2147483648; /* (2 ^ 31) */
 	a[0] = n / m;
 	for (i = 1; i < 32; i++)
@@ -43,5 +31,3 @@ int print_binary(va_list types, char buffer[],
 	}
 	return (count);
 }
-
-
