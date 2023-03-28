@@ -57,5 +57,6 @@ int print_p(va_list args, flags_t *f);
 int get_flag(char s, flags_t *f);
 int _puts(char *str);
 int print_rev_str(va_list args, flags_t *f);
+int print_rot13(va_list args, flags_t *f);
 
 #endif

@@ -23,6 +23,7 @@ int (*get_func(const char a))(va_list, flags_t *)
 		{'S', print_S},
 		{'p', print_p},
 		{'r', print_rev_str},
+		{'R', print_rot13},
 		{'%', print_percent},
 		{'\0', NULL}
 	};
